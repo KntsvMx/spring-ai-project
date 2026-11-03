@@ -51,7 +51,7 @@ h1 { font-size: 19px; margin: 7px 0 0; font-weight: 550; letter-spacing: -.5px; 
 .message-label { display: flex; align-items: center; gap: 9px; color: var(--green); font-size: 11px; font-weight: 650; letter-spacing: .5px; }
 .message-label::before { content: "J"; font-family: Georgia, serif; display: grid; place-items: center; width: 25px; height: 25px; border-radius: 8px; background: #e4ecdf; }
 .message.user .message-label { color: var(--muted); }
-.message.user .message-label::before { content: "Я"; font-family: inherit; font-weight: 400; background: #e7e7e0; }
+.message.user .message-label::before { content: "Y"; font-family: inherit; font-weight: 400; background: #e7e7e0; }
 .message p { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.8; font-size: 14px; margin: 11px 0 0 34px; }
 .composer-area { width: min(850px, 100%); margin: 0 auto; padding: 15px 30px 21px; }
 .composer { border: 1px solid #cdd2c6; border-radius: 14px; padding: 17px; background: #fefefa; box-shadow: 0 4px 20px #34472b05; }

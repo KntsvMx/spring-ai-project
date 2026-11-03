@@ -36,7 +36,7 @@ function setBusy(value, message) {
     input.disabled = value || !chatId;
     send.disabled = value || !chatId;
     messages.setAttribute("aria-busy", String(value));
-    status.textContent = message || "Готов к твоему вопросу";
+    status.textContent = message || "Ready for your question";
 }
 
 function showError(error) {
@@ -76,7 +76,7 @@ function renderMessage(message) {
     item.className = message.role === "USER" ? "message user" : "message assistant";
     const label = document.createElement("div");
     label.className = "message-label";
-    label.textContent = message.role === "USER" ? "ТЫ" : "STUDY CHAT";
+    label.textContent = message.role === "USER" ? "YOU" : "STUDY CHAT";
     const text = document.createElement("p");
     text.textContent = message.content;
     item.append(label, text);
@@ -97,7 +97,7 @@ async function createChat() {
 }
 
 async function initialize() {
-    setBusy(true, "Открываем диалог…");
+    setBusy(true, "Opening chat…");
     clearError();
     try {
         const savedId = storedChatId();
@@ -116,7 +116,7 @@ async function initialize() {
     } catch (error) {
         showError(error);
     } finally {
-        setBusy(false, chatId ? undefined : "Нажми «Новый диалог», чтобы повторить подключение");
+        setBusy(false, chatId ? undefined : "Click New chat to try connecting again");
         scrollToLatest();
     }
 }
@@ -124,7 +124,7 @@ async function initialize() {
 newChat.addEventListener("click", async () => {
     if (busy) return;
     clearError();
-    setBusy(true, "Создаём диалог…");
+    setBusy(true, "Creating chat…");
     try {
         await createChat();
         input.value = "";
@@ -142,7 +142,7 @@ form.addEventListener("submit", async (event) => {
     const content = input.value.trim();
     if (!content) return;
     clearError();
-    setBusy(true, "Ollama готовит ответ… Первый запрос может занять больше времени.");
+    setBusy(true, "Ollama is preparing a response… The first request may take longer.");
     try {
         const reply = await request(`/api/chats/${chatId}/chatMessages`, {
             method: "POST",

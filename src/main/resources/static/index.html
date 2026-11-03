@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,21 +10,21 @@
 </head>
 <body>
 <div class="app">
-    <aside class="sidebar" aria-label="О приложении">
-        <a class="brand" href="/" aria-label="Java Study Chat, главная">
+    <aside class="sidebar" aria-label="About this app">
+        <a class="brand" href="/" aria-label="Java Study Chat, home">
             <span class="brand-icon" aria-hidden="true">J</span>
             <span>Study Chat<span class="brand-subtitle">JAVA BOOTCAMP</span></span>
         </a>
-        <button id="new-chat" class="new-chat" type="button"><span aria-hidden="true">＋</span> Новый диалог</button>
+        <button id="new-chat" class="new-chat" type="button"><span aria-hidden="true">＋</span> New chat</button>
         <div class="sidebar-description">
-            <span class="eyebrow">ТВОЙ УЧЕБНЫЙ ПОМОЩНИК</span>
-            <p>Разбирайся в Java и Spring.<br>Задавай вопросы. Уточняй детали.</p>
+            <span class="eyebrow">YOUR STUDY ASSISTANT</span>
+            <p>Learn Java and Spring.<br>Ask questions. Explore the details.</p>
         </div>
         <div class="local-note">
             <span class="local-dot" aria-hidden="true"></span>
-            <div><strong>Локальная модель</strong><p>Ответы генерирует Ollama на твоём компьютере.</p></div>
+            <div><strong>Local model</strong><p>Ollama generates answers on your computer.</p></div>
         </div>
-        <p class="storage-note">История хранится до перезапуска приложения. Новый диалог начинает разговор с чистого листа.</p>
+        <p class="storage-note">History is kept until the application restarts. Start a new chat for a fresh conversation.</p>
     </aside>
 
     <main class="main">
@@ -36,29 +36,29 @@
         <div class="conversation">
             <section id="welcome" class="welcome" aria-labelledby="welcome-title">
                 <div class="welcome-icon" aria-hidden="true">{ }</div>
-                <span class="eyebrow">УЧИМСЯ ЧЕРЕЗ РАЗГОВОР</span>
-                <h2 id="welcome-title">Что разберём сегодня?</h2>
-                <p>От первого Spring Bean до уверенного понимания Java.<br>Начни с вопроса — и продолжим вместе.</p>
+                <span class="eyebrow">LEARN THROUGH CONVERSATION</span>
+                <h2 id="welcome-title">What would you like to learn today?</h2>
+                <p>From your first Spring Bean to a solid grasp of Java.<br>Start with a question, and we'll take it from there.</p>
                 <div class="suggestions">
-                    <button type="button" data-prompt="Объясни, что такое Spring Bean, в двух предложениях."><span>01</span> Что такое Spring Bean?<span aria-hidden="true">↗</span></button>
-                    <button type="button" data-prompt="Чем отличаются List, Set и Map? Приведи простой пример."><span>02</span> List, Set или Map?<span aria-hidden="true">↗</span></button>
-                    <button type="button" data-prompt="Помоги понять, как HTTP-запрос проходит через Controller, Service и Repository."><span>03</span> Как устроен REST API?<span aria-hidden="true">↗</span></button>
+                    <button type="button" data-prompt="Explain what a Spring Bean is in two sentences."><span>01</span> What is a Spring Bean?<span aria-hidden="true">↗</span></button>
+                    <button type="button" data-prompt="How do List, Set, and Map differ? Give a simple example."><span>02</span> List, Set, or Map?<span aria-hidden="true">↗</span></button>
+                    <button type="button" data-prompt="Help me understand how an HTTP request flows through the Controller, Service, and Repository."><span>03</span> How does a REST API work?<span aria-hidden="true">↗</span></button>
                 </div>
             </section>
-            <section id="messages" class="messages" role="log" aria-label="Сообщения диалога" aria-live="polite" aria-relevant="additions"></section>
+            <section id="messages" class="messages" role="log" aria-label="Chat messages" aria-live="polite" aria-relevant="additions"></section>
         </div>
 
         <div class="composer-area">
             <p id="error" class="error" role="alert" hidden></p>
             <form id="chat-form" class="composer">
-                <label for="content" class="sr-only">Твоё сообщение</label>
-                <textarea id="content" name="content" rows="2" maxlength="4000" placeholder="Спроси о Java или Spring…" required disabled></textarea>
+                <label for="content" class="sr-only">Your message</label>
+                <textarea id="content" name="content" rows="2" maxlength="4000" placeholder="Ask about Java or Spring…" required disabled></textarea>
                 <div class="composer-bottom">
-                    <span id="status" role="status" aria-live="polite">Подключаем диалог…</span>
-                    <button id="send" type="submit" disabled>Отправить <span aria-hidden="true">↑</span></button>
+                    <span id="status" role="status" aria-live="polite">Connecting to chat…</span>
+                    <button id="send" type="submit" disabled>Send <span aria-hidden="true">↑</span></button>
                 </div>
             </form>
-            <p class="footer-note">Enter — отправить · Shift + Enter — новая строка <span>Модель может ошибаться. Проверяй важные ответы.</span></p>
+            <p class="footer-note">Enter to send · Shift + Enter for a new line <span>The model can make mistakes. Check important answers.</span></p>
         </div>
     </main>
 </div>
