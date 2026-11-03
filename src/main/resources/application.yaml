@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: spring-ai-project
+  http:
+    clients:
+      connect-timeout: 5s
+      read-timeout: 120s
+  ai:
+    model:
+      chat: ollama
+      embedding: none
+    ollama:
+      base-url: ${OLLAMA_BASE_URL:http://localhost:11434}
+      init:
+        pull-model-strategy: never
+      chat:
+        model: ${OLLAMA_MODEL:llama3.2}
+        temperature: 0.7
+        num-predict: 512
+    retry:
+      # Spring AI 2.0.1 passes this to RetryPolicy.maxRetries: 0 means one attempt, no repeats.
+      max-attempts: 0
+
+server:
+  address: 127.0.0.1
+  port: ${SERVER_PORT:8080}
+  error:
+    include-message: never
+    include-stacktrace: never
+
+chatbot:
+  system-prompt: >-
+    You are a helpful Java and Spring study assistant for a bootcamp student.
+    Reply in the language used by the student. Give clear explanations and
+    practical examples when requested. Use the conversation history for follow-up
+    questions. If you are unsure, say so. Do not claim to have run code, accessed
+    files, or checked external information. Keep answers concise unless the
+    student asks for more detail.
